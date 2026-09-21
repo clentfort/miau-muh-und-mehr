@@ -10,6 +10,7 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
+  Switch,
   Text,
   TextInput,
   useWindowDimensions,
@@ -20,8 +21,10 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { loadInstalledLibrary, syncLibrary, type SyncStatus } from './src/library';
 import { displayName, matchesSearch, shuffleClips } from './src/playback';
 import {
+  loadFullScreen,
   loadHomeLayout,
   loadLastPlayed,
+  saveFullScreen,
   saveHomeLayout,
   saveLastPlayed,
 } from './src/preferences';
@@ -237,13 +240,17 @@ interface AnimalViewProps {
 
 function LayoutSettings({
   layout,
+  fullScreen,
   visible,
   onChange,
+  onToggleFullScreen,
   onClose,
 }: {
   layout: HomeLayout;
+  fullScreen: boolean;
   visible: boolean;
   onChange: (layout: HomeLayout) => void;
+  onToggleFullScreen: (enabled: boolean) => void;
   onClose: () => void;
 }) {
   const choices: Array<{ id: HomeLayout; icon: string; label: string }> = [
@@ -286,6 +293,21 @@ function LayoutSettings({
               );
             })}
           </View>
+          <View style={styles.fullScreenOption}>
+            <View style={styles.fullScreenTextGroup}>
+              <Text style={styles.fullScreenTitle}>Vollbildmodus</Text>
+              <Text style={styles.fullScreenDescription}>
+                Blendet die Statusleiste aus.
+              </Text>
+            </View>
+            <Switch
+              accessibilityLabel="Vollbildmodus"
+              onValueChange={onToggleFullScreen}
+              thumbColor={fullScreen ? COLORS.accent : '#f4f3f4'}
+              trackColor={{ false: '#d0c3af', true: COLORS.accentSoft }}
+              value={fullScreen}
+            />
+          </View>
           <Pressable onPress={onClose} style={styles.doneButton}>
             <Text style={styles.doneButtonText}>Fertig</Text>
           </Pressable>
@@ -318,6 +340,7 @@ function StatusMessage({ status }: { status: SyncStatus }) {
 function HomeScreen() {
   const [library, setLibrary] = useState<LocalLibrary | null>(null);
   const [layout, setLayout] = useState<HomeLayout>('grid');
+  const [fullScreen, setFullScreen] = useState(true);
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<SyncStatus>({ kind: 'idle' });
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -333,11 +356,12 @@ function HomeScreen() {
 
   useEffect(() => {
     let active = true;
-    void Promise.all([loadInstalledLibrary(), loadHomeLayout()]).then(
-      ([installed, storedLayout]) => {
+    void Promise.all([loadInstalledLibrary(), loadHomeLayout(), loadFullScreen()]).then(
+      ([installed, storedLayout, storedFullScreen]) => {
         if (!active) return;
         setLibrary(installed);
         setLayout(storedLayout);
+        setFullScreen(storedFullScreen);
         setReady(true);
         void refresh();
       },
@@ -365,6 +389,11 @@ function HomeScreen() {
     void saveHomeLayout(nextLayout);
   }, []);
 
+  const toggleFullScreen = useCallback((enabled: boolean) => {
+    setFullScreen(enabled);
+    void saveFullScreen(enabled);
+  }, []);
+
   const advancePlayback = useCallback(() => {
     setPlayback((current) => {
       if (!current || current.index + 1 >= current.clips.length) {
@@ -382,7 +411,7 @@ function HomeScreen() {
     const needsWifi = ready && status.kind === 'wifi-required';
     return (
       <SafeAreaView edges={['top', 'bottom']} style={styles.emptyScreen}>
-        <StatusBar style="dark" />
+        <StatusBar hidden={fullScreen} style="dark" />
         <View style={styles.emptyMark}>
           <Text style={styles.emptyMarkText}>♪</Text>
         </View>
@@ -407,7 +436,7 @@ function HomeScreen() {
 
   return (
     <SafeAreaView edges={['top']} style={styles.home}>
-      <StatusBar style="dark" />
+      <StatusBar hidden={fullScreen} style="dark" />
       <View style={styles.header}>
         <View style={styles.titleRow}>
           <View>
@@ -457,9 +486,11 @@ function HomeScreen() {
       )}
 
       <LayoutSettings
+        fullScreen={fullScreen}
         layout={layout}
         onChange={changeLayout}
         onClose={() => setSettingsVisible(false)}
+        onToggleFullScreen={toggleFullScreen}
         visible={settingsVisible}
       />
 
@@ -662,6 +693,21 @@ const styles = StyleSheet.create({
   layoutIcon: { color: COLORS.ink, fontSize: 31, fontWeight: '700' },
   layoutLabel: { color: COLORS.ink, fontSize: 14, fontWeight: '800', marginTop: 5 },
   layoutTextSelected: { color: '#fff' },
+  fullScreenOption: {
+    alignItems: 'center',
+    backgroundColor: COLORS.card,
+    borderColor: COLORS.border,
+    borderRadius: 18,
+    borderWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  fullScreenTextGroup: { flex: 1, marginRight: 12 },
+  fullScreenTitle: { color: COLORS.ink, fontSize: 16, fontWeight: '800' },
+  fullScreenDescription: { color: COLORS.muted, fontSize: 13, marginTop: 2 },
   doneButton: {
     alignItems: 'center',
     backgroundColor: COLORS.accent,
