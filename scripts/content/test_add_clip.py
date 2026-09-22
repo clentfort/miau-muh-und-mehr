@@ -1,6 +1,6 @@
 import unittest
 
-from add_clip import add_clip, german_sort_key, normalize_name, slugify, youtube_id
+from add_clip import add_clip, german_sort_key, normalize_name, parse_categories, slugify, youtube_id
 
 
 class AddClipTest(unittest.TestCase):
@@ -8,19 +8,35 @@ class AddClipTest(unittest.TestCase):
         self.assertEqual(normalize_name("  Red   FOX  "), "red fox")
         self.assertEqual(slugify("Rød Panda"), "rd-panda")
 
+    def test_parses_categories(self):
+        self.assertEqual(parse_categories(" Bauernhof , Haustiere , Bauernhof "), ["Bauernhof", "Haustiere"])
+        self.assertEqual(parse_categories(["Zoo", " Wildtiere "]), ["Zoo", "Wildtiere"])
+
     def test_reads_supported_youtube_urls(self):
         self.assertEqual(youtube_id("https://www.youtube.com/shorts/0dbu5Q3l-yM"), "0dbu5Q3l-yM")
         self.assertEqual(youtube_id("https://youtu.be/0dbu5Q3l-yM"), "0dbu5Q3l-yM")
 
     def test_creates_animal_and_appends_to_existing_animal(self):
         catalog = {"animals": []}
-        add_clip(catalog, " Sea Lion ", "https://youtu.be/0dbu5Q3l-yM", " Seelöwe ")
-        add_clip(catalog, "sea lion", "https://youtu.be/oN7axlCqiG4")
+        add_clip(
+            catalog,
+            " Sea Lion ",
+            "https://youtu.be/0dbu5Q3l-yM",
+            " Seelöwe ",
+            "Zoo, Wildtiere",
+        )
+        add_clip(
+            catalog,
+            "sea lion",
+            "https://youtu.be/oN7axlCqiG4",
+            categories=" Meerestiere ",
+        )
 
         self.assertEqual(len(catalog["animals"]), 1)
         self.assertEqual(catalog["animals"][0]["name"], "sea lion")
         self.assertEqual(catalog["animals"][0]["id"], "sea-lion")
         self.assertEqual(catalog["animals"][0]["nameDe"], "Seelöwe")
+        self.assertEqual(catalog["animals"][0]["categories"], ["Zoo", "Wildtiere", "Meerestiere"])
         self.assertEqual(len(catalog["animals"][0]["sources"]), 2)
 
     def test_requires_a_german_name_for_a_new_animal(self):

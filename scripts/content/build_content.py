@@ -76,6 +76,12 @@ def validate_catalog(catalog: dict) -> None:
             raise ValueError(f"Animal names must be lowercase: {name!r}")
         if not isinstance(name_de, str) or not name_de.strip():
             raise ValueError(f"Animal {name!r} needs a German name in nameDe.")
+        categories = animal.get("categories")
+        if categories is not None:
+            if not isinstance(categories, list) or not all(
+                isinstance(c, str) and c.strip() for c in categories
+            ):
+                raise ValueError(f"Animal {name!r} has invalid categories.")
         if not isinstance(sources, list) or not sources:
             raise ValueError(f"Animal {name!r} needs at least one source.")
         for source in sources:
@@ -219,15 +225,16 @@ def build(catalog_path: Path, output: Path, cache: Path, release_base: str) -> d
             raise ValueError(f"Animal {animal['name']!r} does not have a clip.")
         extract_cover(first_clip, cover_path)
 
-        manifest_animals.append(
-            {
-                "id": animal["id"],
-                "name": animal["name"],
-                "nameDe": animal["nameDe"],
-                "cover": asset(release_base, cover_path),
-                "clips": manifest_clips,
-            }
-        )
+        manifest_animal = {
+            "id": animal["id"],
+            "name": animal["name"],
+            "nameDe": animal["nameDe"],
+            "cover": asset(release_base, cover_path),
+            "clips": manifest_clips,
+        }
+        if "categories" in animal:
+            manifest_animal["categories"] = animal["categories"]
+        manifest_animals.append(manifest_animal)
 
     catalog_digest = hashlib.sha256(
         (PROCESSING_VERSION + json.dumps(catalog, sort_keys=True)).encode()
