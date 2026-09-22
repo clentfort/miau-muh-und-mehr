@@ -16,7 +16,10 @@
     "react-native-safe-area-context": "5.7.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
     "@types/react": "19.2.4",
+    "husky": "9.1.7",
     "typescript": "6.0.3",
     "vitest": "5.0.1"
   },
@@ -26,7 +29,9 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "commitlint": "commitlint",
+    "prepare": "husky"
   },
   "private": true,
   "expo": {

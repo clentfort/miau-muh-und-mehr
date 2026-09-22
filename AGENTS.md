@@ -50,6 +50,7 @@ or emulator (`npm run android`) or Xcode 26.6 with an iOS Simulator
 - TypeScript is strict. Tests run on vitest, Python tests on `unittest`.
 - Code, comments, commit messages and pull request descriptions are English.
   User-facing strings in the app are German.
+- Commit messages must follow Conventional Commits format (e.g. `feat:`, `fix:`, `chore:`, `docs:`, `ci:`) enforced by commitlint (`@commitlint/config-conventional`) so semantic releases work correctly.
 - Pin exact dependency versions in `package.json`; no caret ranges.
 - Expo SDK packages are upgraded together, not individually.
 
