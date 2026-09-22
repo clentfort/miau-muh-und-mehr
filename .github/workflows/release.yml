@@ -11,7 +11,12 @@ permissions:
   pull-requests: write
 
 jobs:
+  build-android:
+    uses: ./.github/workflows/android.yml
+    secrets: inherit
+
   release:
+    needs: build-android
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
@@ -22,12 +27,12 @@ jobs:
           node-version: "24"
           cache: npm
       - run: npm ci
+      - name: Download Android APK
+        uses: actions/download-artifact@v7.0.1
+        with:
+          name: miau-muh-und-mehr
+          path: build-assets
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-
-  build-android:
-    needs: release
-    uses: ./.github/workflows/android.yml
-    secrets: inherit
