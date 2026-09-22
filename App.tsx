@@ -4,6 +4,7 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  BackHandler,
   FlatList,
   Image,
   Modal,
@@ -286,6 +287,19 @@ function LayoutSettings({
               );
             })}
           </View>
+          <View style={styles.exitAppSection}>
+            <Text style={styles.exitAppDescription}>
+              Beendet die Anwendung, um zum Startbildschirm zurückzukehren.
+            </Text>
+            <Pressable
+              accessibilityLabel="App beenden"
+              accessibilityRole="button"
+              onPress={() => BackHandler.exitApp()}
+              style={({ pressed }) => [styles.exitAppButton, pressed && styles.pressed]}
+            >
+              <Text style={styles.exitAppButtonText}>App beenden</Text>
+            </Pressable>
+          </View>
           <Pressable onPress={onClose} style={styles.doneButton}>
             <Text style={styles.doneButtonText}>Fertig</Text>
           </Pressable>
@@ -382,7 +396,7 @@ function HomeScreen() {
     const needsWifi = ready && status.kind === 'wifi-required';
     return (
       <SafeAreaView edges={['top', 'bottom']} style={styles.emptyScreen}>
-        <StatusBar style="dark" />
+        <StatusBar hidden />
         <View style={styles.emptyMark}>
           <Text style={styles.emptyMarkText}>♪</Text>
         </View>
@@ -407,7 +421,7 @@ function HomeScreen() {
 
   return (
     <SafeAreaView edges={['top']} style={styles.home}>
-      <StatusBar style="dark" />
+      <StatusBar hidden />
       <View style={styles.header}>
         <View style={styles.titleRow}>
           <View>
@@ -662,6 +676,23 @@ const styles = StyleSheet.create({
   layoutIcon: { color: COLORS.ink, fontSize: 31, fontWeight: '700' },
   layoutLabel: { color: COLORS.ink, fontSize: 14, fontWeight: '800', marginTop: 5 },
   layoutTextSelected: { color: '#fff' },
+  exitAppSection: {
+    backgroundColor: COLORS.card,
+    borderColor: COLORS.border,
+    borderRadius: 18,
+    borderWidth: 2,
+    marginTop: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+  },
+  exitAppDescription: { color: COLORS.muted, fontSize: 13, marginBottom: 10 },
+  exitAppButton: {
+    alignItems: 'center',
+    backgroundColor: '#e0533c',
+    borderRadius: 12,
+    paddingVertical: 12,
+  },
+  exitAppButtonText: { color: '#fff', fontSize: 15, fontWeight: '900' },
   doneButton: {
     alignItems: 'center',
     backgroundColor: COLORS.accent,
