@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { displayName, matchesSearch, normalizeSearch, shuffleClips } from './playback';
+import { displayName, matchesCategory, matchesSearch, normalizeSearch, shuffleClips } from './playback';
 import type { LocalClip } from './types';
 
 function clip(id: string): LocalClip {
@@ -46,6 +46,20 @@ describe('animal names', () => {
     expect(matchesSearch(animal, 'LÖWE')).toBe(true);
     expect(matchesSearch(animal, 'lion')).toBe(true);
     expect(matchesSearch(animal, 'kuh')).toBe(false);
+  });
+
+  it('finds an animal by its category name', () => {
+    const animal = { name: 'cow', nameDe: 'Kuh', categories: ['Bauernhof'] };
+    expect(matchesSearch(animal, 'bauernhof')).toBe(true);
+  });
+
+  it('filters animals by category', () => {
+    const animal = { name: 'cow', nameDe: 'Kuh', categories: ['Bauernhof', 'Haustiere'] };
+    expect(matchesCategory(animal, null)).toBe(true);
+    expect(matchesCategory(animal, 'all')).toBe(true);
+    expect(matchesCategory(animal, 'Bauernhof')).toBe(true);
+    expect(matchesCategory(animal, 'HAUSTIERE')).toBe(true);
+    expect(matchesCategory(animal, 'Zoo')).toBe(false);
   });
 
   it('displays the German name', () => {

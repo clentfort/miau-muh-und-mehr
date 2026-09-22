@@ -66,6 +66,9 @@ function isAnimal(value: unknown): value is ManifestAnimal {
     value.name === value.name.toLocaleLowerCase('en') &&
     (value.nameDe === undefined ||
       (typeof value.nameDe === 'string' && value.nameDe.length > 0)) &&
+    (value.categories === undefined ||
+      (Array.isArray(value.categories) &&
+        value.categories.every((cat) => typeof cat === 'string' && cat.length > 0))) &&
     isAsset(value.cover) &&
     Array.isArray(value.clips) &&
     value.clips.length > 0 &&
@@ -165,6 +168,7 @@ function toLocalLibrary(manifest: ContentManifest): LocalLibrary | null {
       id: animal.id,
       name: animal.name,
       nameDe: animal.nameDe,
+      categories: animal.categories,
       coverUri: cover.uri,
       clips,
     });

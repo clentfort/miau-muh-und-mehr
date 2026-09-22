@@ -19,7 +19,7 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { loadInstalledLibrary, syncLibrary, type SyncStatus } from './src/library';
-import { displayName, matchesSearch, shuffleClips } from './src/playback';
+import { displayName, matchesCategory, matchesSearch, shuffleClips } from './src/playback';
 import {
   loadHomeLayout,
   loadLastPlayed,
@@ -333,6 +333,7 @@ function HomeScreen() {
   const [library, setLibrary] = useState<LocalLibrary | null>(null);
   const [layout, setLayout] = useState<HomeLayout>('grid');
   const [query, setQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [status, setStatus] = useState<SyncStatus>({ kind: 'idle' });
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [playback, setPlayback] = useState<Playback | null>(null);
@@ -361,9 +362,26 @@ function HomeScreen() {
     };
   }, [refresh]);
 
+  const categories = useMemo(() => {
+    if (!library) return [];
+    const set = new Set<string>();
+    for (const animal of library.animals) {
+      if (animal.categories) {
+        for (const cat of animal.categories) {
+          set.add(cat);
+        }
+      }
+    }
+    return Array.from(set).sort((a, b) => a.localeCompare(b, 'de'));
+  }, [library]);
+
   const animals = useMemo(
-    () => library?.animals.filter((animal) => matchesSearch(animal, query)) ?? [],
-    [library, query],
+    () =>
+      library?.animals.filter(
+        (animal) =>
+          matchesCategory(animal, selectedCategory) && matchesSearch(animal, query),
+      ) ?? [],
+    [library, query, selectedCategory],
   );
 
   const selectAnimal = useCallback(async (animal: LocalAnimal) => {
@@ -453,6 +471,57 @@ function HomeScreen() {
             value={query}
           />
         </View>
+        {categories.length > 0 && (
+          <ScrollView
+            contentContainerStyle={styles.categoryContainer}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.categoryBar}
+          >
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setSelectedCategory(null)}
+              style={({ pressed }) => [
+                styles.categoryChip,
+                selectedCategory === null && styles.categoryChipSelected,
+                pressed && styles.pressed,
+              ]}
+            >
+              <Text
+                style={[
+                  styles.categoryChipText,
+                  selectedCategory === null && styles.categoryChipTextSelected,
+                ]}
+              >
+                Alle
+              </Text>
+            </Pressable>
+            {categories.map((cat) => {
+              const active = selectedCategory === cat;
+              return (
+                <Pressable
+                  accessibilityRole="button"
+                  key={cat}
+                  onPress={() => setSelectedCategory(active ? null : cat)}
+                  style={({ pressed }) => [
+                    styles.categoryChip,
+                    active && styles.categoryChipSelected,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.categoryChipText,
+                      active && styles.categoryChipTextSelected,
+                    ]}
+                  >
+                    {cat}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+        )}
         <StatusMessage status={status} />
       </View>
 
@@ -549,6 +618,28 @@ const styles = StyleSheet.create({
   },
   searchIcon: { color: COLORS.forest, fontSize: 26, fontWeight: '800', marginRight: 8 },
   searchInput: { color: COLORS.ink, flex: 1, fontSize: 17, fontWeight: '600', paddingVertical: 10 },
+  categoryBar: { marginTop: 12 },
+  categoryContainer: { gap: 8, paddingHorizontal: 2 },
+  categoryChip: {
+    backgroundColor: COLORS.card,
+    borderColor: COLORS.border,
+    borderRadius: 16,
+    borderWidth: 2,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+  },
+  categoryChipSelected: {
+    backgroundColor: COLORS.forest,
+    borderColor: COLORS.forest,
+  },
+  categoryChipText: {
+    color: COLORS.ink,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  categoryChipTextSelected: {
+    color: '#fff',
+  },
   syncText: { color: COLORS.muted, fontSize: 12, marginTop: 8, textAlign: 'center' },
   syncError: { color: '#a44b32', fontSize: 12, marginTop: 8, textAlign: 'center' },
   contentBottom: { paddingBottom: 28, paddingHorizontal: 12 },

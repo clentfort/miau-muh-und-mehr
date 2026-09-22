@@ -15,6 +15,7 @@ export interface ManifestAnimal {
   id: string;
   name: string;
   nameDe?: string;
+  categories?: string[];
   cover: RemoteAsset;
   clips: ManifestClip[];
 }

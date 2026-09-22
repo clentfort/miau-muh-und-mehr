@@ -4,6 +4,10 @@
       "id": "monkey",
       "name": "monkey",
       "nameDe": "Affe",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "RU01wauDHfs",
@@ -15,6 +19,9 @@
       "id": "alpaca",
       "name": "alpaca",
       "nameDe": "Alpaka",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "njr0pLNLbGY",
@@ -26,6 +33,10 @@
       "id": "bear",
       "name": "bear",
       "nameDe": "Bär",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "KyfDeGvUqnA",
@@ -37,6 +48,10 @@
       "id": "elephant",
       "name": "elephant",
       "nameDe": "Elefant",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "An44Lb1reJM",
@@ -48,6 +63,10 @@
       "id": "duck",
       "name": "duck",
       "nameDe": "Ente",
+      "categories": [
+        "Bauernhof",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "bNQKJhHkOh4",
@@ -59,6 +78,10 @@
       "id": "meerkat",
       "name": "meerkat",
       "nameDe": "Erdmännchen",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "tRmrXb9m9CU",
@@ -70,6 +93,9 @@
       "id": "donkey",
       "name": "donkey",
       "nameDe": "Esel",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "cJg2x2g0T9o",
@@ -81,6 +107,10 @@
       "id": "owl",
       "name": "owl",
       "nameDe": "Eule",
+      "categories": [
+        "Vögel",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "Xe_PX1wBzUs",
@@ -92,6 +122,10 @@
       "id": "goose",
       "name": "goose",
       "nameDe": "Gans",
+      "categories": [
+        "Bauernhof",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "ppMAUlpN03k",
@@ -103,6 +137,10 @@
       "id": "giraffe",
       "name": "giraffe",
       "nameDe": "Giraffe",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "xLWXtgp1D1A",
@@ -114,6 +152,10 @@
       "id": "gnu",
       "name": "gnu",
       "nameDe": "Gnu",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "siJ0aW2lRx8",
@@ -125,6 +167,10 @@
       "id": "rooster",
       "name": "rooster",
       "nameDe": "Hahn",
+      "categories": [
+        "Bauernhof",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "HcM4JZFHqcQ",
@@ -136,6 +182,10 @@
       "id": "chicken",
       "name": "chicken",
       "nameDe": "Huhn",
+      "categories": [
+        "Bauernhof",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "dFZa2KZ4fG4",
@@ -147,6 +197,9 @@
       "id": "dog",
       "name": "dog",
       "nameDe": "Hund",
+      "categories": [
+        "Haustiere"
+      ],
       "sources": [
         {
           "youtubeId": "KXIdtD0yBwo",
@@ -158,6 +211,9 @@
       "id": "camel",
       "name": "camel",
       "nameDe": "Kamel",
+      "categories": [
+        "Zoo"
+      ],
       "sources": [
         {
           "youtubeId": "fh41rEfVfDA",
@@ -169,6 +225,10 @@
       "id": "canary",
       "name": "canary",
       "nameDe": "Kanarienvogel",
+      "categories": [
+        "Haustiere",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "mWnEYjeCrY0",
@@ -180,6 +240,10 @@
       "id": "rabbit",
       "name": "rabbit",
       "nameDe": "Kaninchen",
+      "categories": [
+        "Haustiere",
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "amhd3juVObg",
@@ -191,6 +255,9 @@
       "id": "cat",
       "name": "cat",
       "nameDe": "Katze",
+      "categories": [
+        "Haustiere"
+      ],
       "sources": [
         {
           "youtubeId": "3_irejNkT8Q",
@@ -202,6 +269,10 @@
       "id": "crocodile",
       "name": "crocodile",
       "nameDe": "Krokodil",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "XAqmOTzz4zw",
@@ -213,6 +284,9 @@
       "id": "cow",
       "name": "cow",
       "nameDe": "Kuh",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "nwEKz6DN9jc",
@@ -224,6 +298,10 @@
       "id": "llama",
       "name": "llama",
       "nameDe": "Lama",
+      "categories": [
+        "Bauernhof",
+        "Zoo"
+      ],
       "sources": [
         {
           "youtubeId": "2eqfgHh3efs",
@@ -235,6 +313,10 @@
       "id": "lion",
       "name": "lion",
       "nameDe": "Löwe",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "0dbu5Q3l-yM",
@@ -250,6 +332,9 @@
       "id": "guinea-pig",
       "name": "guinea pig",
       "nameDe": "Meerschweinchen",
+      "categories": [
+        "Haustiere"
+      ],
       "sources": [
         {
           "youtubeId": "JoNTmi6sfro",
@@ -261,6 +346,10 @@
       "id": "hippopotamus",
       "name": "hippopotamus",
       "nameDe": "Nilpferd",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "UGSzILXN5ZY",
@@ -272,6 +361,11 @@
       "id": "parrot",
       "name": "parrot",
       "nameDe": "Papagei",
+      "categories": [
+        "Haustiere",
+        "Vögel",
+        "Zoo"
+      ],
       "sources": [
         {
           "youtubeId": "2aX20VxiqGo",
@@ -283,6 +377,11 @@
       "id": "peacock",
       "name": "peacock",
       "nameDe": "Pfau",
+      "categories": [
+        "Bauernhof",
+        "Vögel",
+        "Zoo"
+      ],
       "sources": [
         {
           "youtubeId": "afAe3IucE30",
@@ -294,6 +393,9 @@
       "id": "horse",
       "name": "horse",
       "nameDe": "Pferd",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "7m21ZBUnLFw",
@@ -305,6 +407,11 @@
       "id": "penguin",
       "name": "penguin",
       "nameDe": "Pinguin",
+      "categories": [
+        "Zoo",
+        "Vögel",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "MVgwKQjHhxQ",
@@ -320,6 +427,9 @@
       "id": "pony",
       "name": "pony",
       "nameDe": "Pony",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "Li0xIeD3M-c",
@@ -331,6 +441,9 @@
       "id": "sheep",
       "name": "sheep",
       "nameDe": "Schaf",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "EbXD1z5EsXg",
@@ -342,6 +455,9 @@
       "id": "pig",
       "name": "pig",
       "nameDe": "Schwein",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "icZNZtq2Mns",
@@ -353,6 +469,10 @@
       "id": "seal",
       "name": "seal",
       "nameDe": "Seehund",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "jFLbcO88vWc",
@@ -364,6 +484,10 @@
       "id": "tiger",
       "name": "tiger",
       "nameDe": "Tiger",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "cf5TUZrb-_g",
@@ -375,6 +499,10 @@
       "id": "turkey",
       "name": "turkey",
       "nameDe": "Truthahn",
+      "categories": [
+        "Bauernhof",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "tkxmqKXYwd4",
@@ -386,6 +514,10 @@
       "id": "budgerigar",
       "name": "budgerigar",
       "nameDe": "Wellensittich",
+      "categories": [
+        "Haustiere",
+        "Vögel"
+      ],
       "sources": [
         {
           "youtubeId": "4mv_YtSeIxQ",
@@ -397,6 +529,10 @@
       "id": "wolf",
       "name": "wolf",
       "nameDe": "Wolf",
+      "categories": [
+        "Wildtiere",
+        "Zoo"
+      ],
       "sources": [
         {
           "youtubeId": "EE8LUWmi9E4",
@@ -408,6 +544,10 @@
       "id": "zebra",
       "name": "zebra",
       "nameDe": "Zebra",
+      "categories": [
+        "Zoo",
+        "Wildtiere"
+      ],
       "sources": [
         {
           "youtubeId": "p8X71SxM7Is",
@@ -419,6 +559,9 @@
       "id": "goat",
       "name": "goat",
       "nameDe": "Ziege",
+      "categories": [
+        "Bauernhof"
+      ],
       "sources": [
         {
           "youtubeId": "i4dKc9QsPEw",
