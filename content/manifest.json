@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "46c7724383a669f9",
-  "updatedAt": "2026-09-18T19:13:25.637459Z",
+  "version": "7065156a76f00f5e",
+  "updatedAt": "2026-09-22T13:39:19.822348Z",
   "animals": [
     {
       "id": "monkey",
@@ -20,6 +20,10 @@
           "bytes": 782345,
           "durationMs": 11781
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -39,6 +43,9 @@
           "bytes": 409952,
           "durationMs": 4641
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -58,6 +65,10 @@
           "bytes": 782453,
           "durationMs": 9841
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -77,6 +88,10 @@
           "bytes": 674539,
           "durationMs": 8301
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -96,6 +111,10 @@
           "bytes": 3083385,
           "durationMs": 9861
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel"
       ]
     },
     {
@@ -115,6 +134,10 @@
           "bytes": 323146,
           "durationMs": 4521
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -134,6 +157,9 @@
           "bytes": 1789939,
           "durationMs": 11401
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -153,6 +179,10 @@
           "bytes": 1096367,
           "durationMs": 10461
         }
+      ],
+      "categories": [
+        "Vögel",
+        "Wildtiere"
       ]
     },
     {
@@ -172,6 +202,10 @@
           "bytes": 8592915,
           "durationMs": 49941
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel"
       ]
     },
     {
@@ -191,6 +225,10 @@
           "bytes": 1006973,
           "durationMs": 7901
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -210,6 +248,10 @@
           "bytes": 512923,
           "durationMs": 14401
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -229,6 +271,10 @@
           "bytes": 1215633,
           "durationMs": 7301
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel"
       ]
     },
     {
@@ -248,6 +294,10 @@
           "bytes": 1295276,
           "durationMs": 10001
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel"
       ]
     },
     {
@@ -267,6 +317,9 @@
           "bytes": 373214,
           "durationMs": 4761
         }
+      ],
+      "categories": [
+        "Haustiere"
       ]
     },
     {
@@ -286,6 +339,9 @@
           "bytes": 516163,
           "durationMs": 5861
         }
+      ],
+      "categories": [
+        "Zoo"
       ]
     },
     {
@@ -305,6 +361,10 @@
           "bytes": 632786,
           "durationMs": 7661
         }
+      ],
+      "categories": [
+        "Haustiere",
+        "Vögel"
       ]
     },
     {
@@ -324,6 +384,10 @@
           "bytes": 242623,
           "durationMs": 8341
         }
+      ],
+      "categories": [
+        "Haustiere",
+        "Bauernhof"
       ]
     },
     {
@@ -343,6 +407,9 @@
           "bytes": 977793,
           "durationMs": 12701
         }
+      ],
+      "categories": [
+        "Haustiere"
       ]
     },
     {
@@ -362,6 +429,10 @@
           "bytes": 2714421,
           "durationMs": 12181
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -381,6 +452,9 @@
           "bytes": 278915,
           "durationMs": 14101
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -400,6 +474,10 @@
           "bytes": 1145008,
           "durationMs": 22841
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Zoo"
       ]
     },
     {
@@ -426,6 +504,10 @@
           "bytes": 790875,
           "durationMs": 8021
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -445,6 +527,9 @@
           "bytes": 597499,
           "durationMs": 4921
         }
+      ],
+      "categories": [
+        "Haustiere"
       ]
     },
     {
@@ -464,6 +549,10 @@
           "bytes": 2649335,
           "durationMs": 12681
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -483,6 +572,11 @@
           "bytes": 254503,
           "durationMs": 5201
         }
+      ],
+      "categories": [
+        "Haustiere",
+        "Vögel",
+        "Zoo"
       ]
     },
     {
@@ -502,6 +596,11 @@
           "bytes": 203678,
           "durationMs": 4241
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel",
+        "Zoo"
       ]
     },
     {
@@ -521,6 +620,9 @@
           "bytes": 485626,
           "durationMs": 6181
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -547,6 +649,11 @@
           "bytes": 557822,
           "durationMs": 8761
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Vögel",
+        "Wildtiere"
       ]
     },
     {
@@ -566,6 +673,9 @@
           "bytes": 1111914,
           "durationMs": 8382
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -585,6 +695,9 @@
           "bytes": 625886,
           "durationMs": 4061
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -604,6 +717,9 @@
           "bytes": 1500033,
           "durationMs": 9961
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     },
     {
@@ -623,6 +739,10 @@
           "bytes": 788274,
           "durationMs": 5281
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -642,6 +762,10 @@
           "bytes": 323826,
           "durationMs": 5041
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -661,6 +785,10 @@
           "bytes": 98296,
           "durationMs": 7121
         }
+      ],
+      "categories": [
+        "Bauernhof",
+        "Vögel"
       ]
     },
     {
@@ -680,6 +808,10 @@
           "bytes": 868497,
           "durationMs": 17741
         }
+      ],
+      "categories": [
+        "Haustiere",
+        "Vögel"
       ]
     },
     {
@@ -699,6 +831,10 @@
           "bytes": 178900,
           "durationMs": 8481
         }
+      ],
+      "categories": [
+        "Wildtiere",
+        "Zoo"
       ]
     },
     {
@@ -718,6 +854,10 @@
           "bytes": 1516024,
           "durationMs": 7941
         }
+      ],
+      "categories": [
+        "Zoo",
+        "Wildtiere"
       ]
     },
     {
@@ -737,6 +877,9 @@
           "bytes": 2292061,
           "durationMs": 14941
         }
+      ],
+      "categories": [
+        "Bauernhof"
       ]
     }
   ]
