@@ -28,7 +28,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Download Android APK
-        uses: actions/download-artifact@v7.0.1
+        uses: actions/download-artifact@v7.0.0
         with:
           name: miau-muh-und-mehr
           path: build-assets
